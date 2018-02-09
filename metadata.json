@@ -1,0 +1,18 @@
+{
+  "name": "mlalex-firefox",
+  "version": "0.1.0",
+  "author": "mlalex",
+  "summary": "This module allows control of the profiles and global preferences firefox. Testing on Firefox 58.0.1(64b)Ubuntu 16.04 LTS",
+  "license": "Apache-2.0",
+  "source": "",
+  "project_page": null,
+  "issues_url": null,
+  "dependencies": [
+    {
+      "name": "puppetlabs-stdlib",
+      "version_requirement": ">= 1.0.0"
+    }
+  ],
+  "data_provider": null
+}
+
