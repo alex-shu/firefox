@@ -1,0 +1,43 @@
+//
+lockPref("browser.startup.homepage","<%= @browser_startup_homepage %>");                   
+lockPref("browser.startup.page",<%= @browser_startup_page %>);
+
+lockPref("browser.shell.checkDefaultBrowser",<%= @browser_shell_checkDefaultBrowser %>);
+
+lockPref("app.update.auto",<%= @app_update_auto  %>);
+lockPref("app.update.enabled",<%= @app_update_enabled %>);
+lockPref("app.update.service.enabled",<%= @app_update_service_enabled  %>);
+lockPref("browser.rights.override",<%= @browser_rights_override %>);
+lockPref("browser.startup.homepage_override.mstone","<%= @browser_startup_homepage_override_mstone %>");
+lockPref("browser.shell.checkDefaultBrowser",<%= @browser_shell_checkDefaultBrowser %>);
+
+lockPref("browser.rights.3.shown",<%= @browser_rights_3_shown %>);
+
+lockPref("pdfjs.disabled",<%= @pdfjs_disabled %>);
+
+lockPref("shumway.disabled",<%= @shumway_disabled %>);
+
+lockPref("plugins.notifyMissingFlash",<%= @plugins_notifyMissingFlash %>);
+
+lockPref("datareporting.healthreport.service.enabled",<%= @datareporting_healthreport_service_enabled %>);
+
+lockPref("datareporting.policy.dataSubmissionEnabled",<%= @datareporting_policy_dataSubmissionEnabled %>);
+
+lockPref("toolkit.telemetry.enabled",<%= @toolkit_telemetry_enabled %>);
+lockPref("toolkit.telemetry.rejected",<%= @toolkit_telemetry_rejected %>);
+lockPref("toolkit.telemetry.prompted",<%= @toolkit_telemetry_prompted %>);
+
+lockPref("datareporting.healthreport.uploadEnabled",<%= @datareporting_healthreport_uploadEnabled %>);
+
+// Disable warning OnClose multiple tabs
+lockPref("browser.tabs.warnOnClose",<%= @browser_tabs_warnOnClose %>);
+
+lockPref( "network.proxy.type",<%= @network_proxy_type %>);
+
+<% unless @proxy_settings.nil? -%>
+<% @proxy_settings.each do |val| -%>
+<% if val[1].is_a?(Integer) != true %><%  val1='"' %><%end%>
+lockPref("<%= val[0] -%>",<%= val1 -%><%= val[1] -%><%= val1 -%>);
+<% end -%>
+<% end -%>
+
