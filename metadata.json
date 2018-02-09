@@ -4,9 +4,9 @@
   "author": "mlalex",
   "summary": "This module allows control of the profiles and global preferences firefox. Testing on Firefox 58.0.1(64b)Ubuntu 16.04 LTS",
   "license": "Apache-2.0",
-  "source": "",
-  "project_page": null,
-  "issues_url": null,
+  "source": "https://github.com/alex-shu/puppet-firefox",
+  "project_page": "https://github.com/alex-shu/puppet-firefox",
+  "issues_url": "https://github.com/alex-shu/puppet-firefox/issues",
   "dependencies": [
     {
       "name": "puppetlabs-stdlib",
@@ -15,4 +15,3 @@
   ],
   "data_provider": null
 }
-
