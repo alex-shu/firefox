@@ -7,6 +7,9 @@
   "source": "https://github.com/alex-shu/puppet-firefox",
   "project_page": "https://github.com/alex-shu/puppet-firefox",
   "issues_url": "https://github.com/alex-shu/puppet-firefox/issues",
+  "tags": [
+    "firefox"
+  ],
   "dependencies": [
     {
       "name": "puppetlabs-stdlib",
