@@ -9,7 +9,8 @@ This module allows you to control the profile and global preferences in Firefox.
 -------
  
 Management is made through files 
-```-- firefox\defaults\pref\all-settings.js 
+```
+-- firefox\defaults\pref\all-settings.js 
 -- firefox\mozilla.cfg 
 ```
 More details can be read here http://kb.mozillazine.org/Locking_preferences.
@@ -22,7 +23,8 @@ The default value is `LOCAL`. Type String.
 
 ## `browser startup page`
 The default value is `1`. Type Integer.
-```--- `0` - Start with a blank page (about:blank).
+```
+--- `0` - Start with a blank page (about:blank).
 --- `1` - Start with the web page(s) defined as the home page(s). (Default) 
 --- `2` - Load the last visited page.
 --- `3` - Resume the previous browser session.
@@ -81,7 +83,8 @@ The default value is `false`. Type Boolean. Disable warning OnClose multiple tab
 
 ## `network proxy type`
 The default value is `5`. Type Integer. 
-```--- `0` - Direct connection, no proxy.
+```
+--- `0` - Direct connection, no proxy.
 --- `1` - Manual proxy configuration.
 --- `2` - Proxy auto-configuration (PAC)
 --- `4` - Auto-detect proxy settings.
