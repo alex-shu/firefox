@@ -1,89 +1,122 @@
-# firefox
 
-#### Table of Contents
+#Firefox
+-------
 
-1. [Description](#description)
-1. [Setup - The basics of getting started with firefox](#setup)
-    * [What firefox affects](#what-firefox-affects)
-    * [Setup requirements](#setup-requirements)
-    * [Beginning with firefox](#beginning-with-firefox)
-1. [Usage - Configuration options and additional functionality](#usage)
-1. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
-1. [Limitations - OS compatibility, etc.](#limitations)
-1. [Development - Guide for contributing to the module](#development)
+This module allows you to control the profile and global preferences in Firefox. Tester for a Firefox browser 58.0.1(64b)in Ubuntu 16.04 LTS. It was developed for corporate governance.
+**Note**: please note that all the parameters are determined using lockPref. That is, this parameter will be set unchanged for the user.
 
-## Description
+# Depends:
+-------
+ 
+Management is made through files 
+-- firefox\defaults\pref\all-settings.js 
+-- firefox\mozilla.cfg 
 
-Start with a one- or two-sentence summary of what the module does and/or what
-problem it solves. This is your 30-second elevator pitch for your module.
-Consider including OS/Puppet version it works with.
+More details can be read here http://kb.mozillazine.org/Locking_preferences.
 
-You can give more descriptive information in a second paragraph. This paragraph
-should answer the questions: "What does this module *do*?" and "Why would I use
-it?" If your module has a range of functionality (installation, configuration,
-management, etc.), this is the time to mention it.
 
-## Setup
+# Parameters
 
-### What firefox affects **OPTIONAL**
+## `browser startup homepage`
+The default value is `LOCAL`. Type String.
 
-If it's obvious what your module touches, you can skip this section. For
-example, folks can probably figure out that your mysql_instance module affects
-their MySQL instances.
+## `browser startup page`
+The default value is `1`. Type Integer.
+--- `0` - Start with a blank page (about:blank).
+--- `1` - Start with the web page(s) defined as the home page(s). (Default) 
+--- `2` - Load the last visited page.
+--- `3` - Resume the previous browser session.
 
-If there's more that they should know about, though, this is the place to mention:
 
-* A list of files, packages, services, or operations that the module will alter,
-  impact, or execute.
-* Dependencies that your module automatically installs.
-* Warnings or other important notices.
+## `browser shell checkDefaultBrowser`
+The default value is `true`. Type Boolean. Check default browser.
 
-### Setup Requirements **OPTIONAL**
+## `app update auto`
+The default value is `false`. Type Boolean.
 
-If your module requires anything extra before setting up (pluginsync enabled,
-etc.), mention it here.
+## `app update enabled`
+The default value is `false``. Type Boolean.
 
-If your most recent release breaks compatibility or requires particular steps
-for upgrading, you might want to include an additional "Upgrading" section
-here.
+## `app update service enabled`
+The default value is `files`. Type Boolean.
 
-### Beginning with firefox
+## `browser rights override`
+The default value is `true`. Type Boolean.
 
-The very basic steps needed for a user to get the module up and running. This
-can include setup steps, if necessary, or it can be an example of the most
-basic use of the module.
+## `browser startup homepage override mstone`
+The default value is `ignore`. Type String. Don't show WhatsNew on first run after every update.
 
-## Usage
+## `browser rights 3 shown` 
+The default value is `true`. Type Boolean. Don't show 'know your rights' on first run.
 
-This section is where you describe how to customize, configure, and do the
-fancy stuff with your module here. It's especially helpful if you include usage
-examples and code samples for doing things with your module.
+## `pdfjs disabled`
+The default value is `true`. Type Boolean. Disable the internal PDF viewer.
 
-## Reference
+## `shumway disabled`
+The default value is `true``. Type Boolean. Disable the flash to javascript converter.
 
-Users need a complete list of your module's classes, types, defined types providers, facts, and functions, along with the parameters for each. You can provide this list either via Puppet Strings code comments or as a complete list in this Reference section.
+## `plugins notifyMissingFlash`
+The default value is `files`. Type Boolean. Don't ask to install the Flash plugin.
 
-* If you are using Puppet Strings code comments, this Reference section should include Strings information so that your users know how to access your documentation.
+## `datareporting healthreport service enabled`
+The default value is `false`. Type Boolean.
 
-* If you are not using Puppet Strings, include a list of all of your classes, defined types, and so on, along with their parameters. Each element in this listing should include:
+## `datareporting policy dataSubmissionEnabled`
+The default value is `false`. Type Boolean.
 
-  * The data type, if applicable.
-  * A description of what the element does.
-  * Valid values, if the data type doesn't make it obvious.
-  * Default value, if any.
+## `toolkit telemetry enabled`
+The default value is `files`. Type Boolean.
 
-## Limitations
+## `toolkit telemetry rejected`
+The default value is `true`. Type Boolean.
 
-This is where you list OS compatibility, version compatibility, etc. If there
-are Known Issues, you might want to include them under their own heading here.
+## `toolkit telemetry prompted`
+The default value is `2`. Type Integer.
 
-## Development
+## `datareporting healthreport uploadEnabled`
+The default value is `false`. Type Boolean.
 
-Since your module is awesome, other users will want to play with it. Let them
-know what the ground rules for contributing are.
+## `browser tabs warnOnClose`
+The default value is `false`. Type Boolean. Disable warning OnClose multiple tabs.
 
-## Release Notes/Contributors/Etc. **Optional**
+## `network proxy type`
+The default value is `5`. Type Integer. 
+--- `0` - Direct connection, no proxy.
+--- `1` - Manual proxy configuration.
+--- `2` - Proxy auto-configuration (PAC)
+--- `4` - Auto-detect proxy settings.
+--- `5` - Use system proxy settings.
+[detail] (http://kb.mozillazine.org/Network.proxy.type)
 
-If you aren't using changelog, put your release notes here (though you should
-consider using changelog). You can also add any additional sections you feel
-are necessary or important to include here. Please use the `## ` header.
+## `proxy settings`
+The default value is `undef`. To specify proxy settings, specify the type of hash. possible parameters can be found in Example,to apply settings you need in the network proxy type parameter to set the value to 1 
+**Note**: Important in strings should not spaces! The presence of spaces leads to an error opening Firefox!
+
+### `Example Proxy settings`
+---------
+  network.proxy.http:'proxy.example.com or IP address'
+  network.proxy.http_port:8080
+  network.proxy.no_proxies_on:'*.example.com,192.168.*.*,mail.example.com' 
+  network.proxy.socks_version:4
+  network.proxy.ssl:'proxy.example.com or IP address'
+  network.proxy.ssl_port:8080,
+  network.proxy.ftp:'proxy.example.com or IP address'
+  network.proxy.ftp_port:8080
+  network.proxy.socks:'proxy.example.comor IP address'
+  network.proxy.socks_port:8080
+---------
+
+
+# License
+-------
+Apache License, Version 2.0
+
+# Contact
+-------
+Aleksey Shurlov sh@apdn.ru
+
+# Support
+-------
+
+ [Projects site](https://github.com/alex-shu/puppet-firefox)
+ 
