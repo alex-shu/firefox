@@ -19,10 +19,10 @@ More details can be read here http://kb.mozillazine.org/Locking_preferences.
 # Parameters
 
 ## `browser startup homepage`
-The default value is `LOCAL`. Type String.
+The default value is `undef`. Type String. To trigger, you must set the parameters of `browser startup page` value 1 
 
 ## `browser startup page`
-The default value is `1`. Type Integer.
+The default value is `0`. Type Integer. 
 ```
  `0` - Start with a blank page (about:blank).
  `1` - Start with the web page(s) defined as the home page(s). (Default) 
@@ -90,7 +90,7 @@ The default value is `5`. Type Integer.
  `4` - Auto-detect proxy settings.
  `5` - Use system proxy settings.
 ```
-[detail] (http://kb.mozillazine.org/Network.proxy.type)
+[detail](http://kb.mozillazine.org/Network.proxy.type)
 
 ## `proxy settings`
 The default value is `undef`. To specify proxy settings, specify the type of hash. possible parameters can be found in Example,to apply settings you need in the network proxy type parameter to set the value to 1 
