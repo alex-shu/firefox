@@ -24,10 +24,10 @@ The default value is `LOCAL`. Type String.
 ## `browser startup page`
 The default value is `1`. Type Integer.
 ```
---- `0` - Start with a blank page (about:blank).
---- `1` - Start with the web page(s) defined as the home page(s). (Default) 
---- `2` - Load the last visited page.
---- `3` - Resume the previous browser session.
+ `0` - Start with a blank page (about:blank).
+ `1` - Start with the web page(s) defined as the home page(s). (Default) 
+ `2` - Load the last visited page.
+ `3` - Resume the previous browser session.
 ```
 
 ## `browser shell checkDefaultBrowser`
@@ -84,11 +84,11 @@ The default value is `false`. Type Boolean. Disable warning OnClose multiple tab
 ## `network proxy type`
 The default value is `5`. Type Integer. 
 ```
---- `0` - Direct connection, no proxy.
---- `1` - Manual proxy configuration.
---- `2` - Proxy auto-configuration (PAC)
---- `4` - Auto-detect proxy settings.
---- `5` - Use system proxy settings.
+ `0` - Direct connection, no proxy.
+ `1` - Manual proxy configuration.
+ `2` - Proxy auto-configuration (PAC)
+ `4` - Auto-detect proxy settings.
+ `5` - Use system proxy settings.
 ```
 [detail] (http://kb.mozillazine.org/Network.proxy.type)
 
@@ -97,7 +97,7 @@ The default value is `undef`. To specify proxy settings, specify the type of has
 **Note**: Important in strings should not spaces! The presence of spaces leads to an error opening Firefox!
 
 ### `Example Proxy settings`
-```---------
+```
   network.proxy.http:'proxy.example.com or IP address'
   network.proxy.http_port:8080
   network.proxy.no_proxies_on:'*.example.com,192.168.*.*,mail.example.com' 
@@ -108,19 +108,19 @@ The default value is `undef`. To specify proxy settings, specify the type of has
   network.proxy.ftp_port:8080
   network.proxy.socks:'proxy.example.comor IP address'
   network.proxy.socks_port:8080
----------```
+```
 
 
 # License
--------
+
 Apache License, Version 2.0
 
 # Contact
--------
+
 Aleksey Shurlov sh@apdn.ru
 
 # Support
--------
+
 
  [Projects site](https://github.com/alex-shu/puppet-firefox)
  
