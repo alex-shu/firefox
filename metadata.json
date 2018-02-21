@@ -1,6 +1,6 @@
 {
   "name": "mlalex-firefox",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "mlalex",
   "summary": "This module allows control of the profiles and global preferences firefox. Testing on Firefox 58.0.1(64b)Ubuntu 16.04 LTS",
   "license": "Apache-2.0",
