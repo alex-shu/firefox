@@ -1,4 +1,4 @@
-//
+//mozilla.cfg: Managed by puppet.
 lockPref("browser.startup.homepage","<%= @browser_startup_homepage %>");                   
 lockPref("browser.startup.page",<%= @browser_startup_page %>);
 
@@ -32,12 +32,28 @@ lockPref("datareporting.healthreport.uploadEnabled",<%= @datareporting_healthrep
 // Disable warning OnClose multiple tabs
 lockPref("browser.tabs.warnOnClose",<%= @browser_tabs_warnOnClose %>);
 
-lockPref( "network.proxy.type",<%= @network_proxy_type %>);
+lockPref("network.proxy.type",<%= @network_proxy_type %>);
 
 <% unless @proxy_settings.nil? -%>
 <% @proxy_settings.each do |val| -%>
 <% if val[1].is_a?(Integer) != true %><%  val1='"' %><%end%>
 lockPref("<%= val[0] -%>",<%= val1 -%><%= val[1] -%><%= val1 -%>);
 <% end -%>
+<% end -%>
+
+<% unless @add_root_ca.nil? -%>
+//taken from:
+//https://wiki.mozilla.org/CA:AddRootToFirefox https://bugzilla.mozilla.org/show_bug.cgi?id=1222519
+try {
+var certdb = Components.classes["@mozilla.org/security/x509certdb;1"].getService(Components.interfaces.nsIX509CertDB);
+var certdb2 = certdb;
+try {
+certdb2 = Components.classes["@mozilla.org/security/x509certdb;1"].getService(Components.interfaces.nsIX509CertDB2);
+} catch (e) {}
+cert = "<%= @add_root_ca.gsub(/-----BEGIN CERTIFICATE-----/,"").gsub(/-----END CERTIFICATE-----/,"").gsub(/[\r\n]/, "") %>"; // This should be the certificate content with no line breaks at all.
+certdb2.addCertFromBase64(cert, "C,C,C", "");
+} catch (e) {
+Components.utils.reportError(e);
+}
 <% end -%>
 

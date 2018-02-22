@@ -18,6 +18,13 @@ More details can be read here http://kb.mozillazine.org/Locking_preferences.
 
 # Parameters
 
+## `add root ca`
+The default value is `undef`. Type String. This parameter is used to assign an enterprise certification authority (CA). 
+Specify the entire certificate with the designation of the beginning and end of the certificate,
+and can be without the designation of the beginning and end "-----BEGIN CERTIFICATE-----", "-----END CERTIFICATE-----".
+In a regular expression, these parts of the strings are specified as is and any change in these parts will result in a certificate installation error!
+In the file mozilla.cfg is assigned to the variable as a whole string without spaces and hyphenation(otherwise it does not work).
+
 ## `browser startup homepage`
 The default value is `undef`. Type String. To trigger, you must set the parameters of `browser startup page` value 1 
 

@@ -1,6 +1,7 @@
 class firefox (
+             $add_root_ca                                 = undef,
   String     $browser_startup_homepage                    = '',
-  Integer    $browser_startup_page                        = 1,
+  Integer    $browser_startup_page                        = 0,
   Boolean    $browser_shell_checkDefaultBrowser           = true,
   Boolean    $app_update_auto                             = false,
   Boolean    $app_update_enabled                          = false,
@@ -20,13 +21,13 @@ class firefox (
   Boolean    $browser_tabs_warnOnClose                    = false,
   Integer    $network_proxy_type                          = 5,
              $proxy_settings                              = undef,
-
-)
-{
+){
 case $operatingsystem {
       centos, redhat: { $pathfirefox = "/usr/lib64/firefox/"
-                        $pathpref = "${pathfirefox}defaults/preferences"  }
+                        $pathpref = "${pathfirefox}defaults/preferences" }
       debian, ubuntu: { $pathfirefox = "/usr/lib/firefox"
+                        $pathpref = "${pathfirefox}/defaults/pref" }
+      linuxmint:      { $pathfirefox = "/usr/lib/firefox"
                         $pathpref = "${pathfirefox}/defaults/pref" }
       default: { fail("Unrecognized operating system for webserver") }
 }
